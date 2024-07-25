@@ -1,0 +1,96 @@
+body {
+  font-family: var(--vk-font-family);
+  font-weight: 400;
+  font-size: var(--vk-font-size-base);
+  color: var(--vk-text-color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: var(--vk-color-primary);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--vk-color-primary-light-3);
+  }
+
+  &:active {
+    color: var(--vk-color-primary-dark-2);
+  }
+}
+/* 这段代码定义了 h1 到 h6 这几个标题元素的样式：
+color: var(--vk-text-color-regular);：设置标题的颜色为变量 --vk-text-color-regular 所代表的颜色。
+font-weight: inherit;：继承父元素的字体粗细。
+&:first-child：选择器，表示选择作为父元素的第一个子元素的标题。margin-top: 0; 表示将这些标题的顶部边距设置为 0。
+&:last-child：选择器，表示选择作为父元素的最后一个子元素的标题。margin-bottom: 0; 表示将这些标题的底部边距设置为 0。
+总的来说，这段代码的目的是统一设置标题元素的颜色、字体粗细，并确保第一个子元素的标题顶部边距和最后一个子元素的标题底部边距为 0，以实现更整洁的排版效果。 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--vk-text-color-regular);
+  font-weight: inherit;
+  /* inherit 是 CSS 中用于继承属性的固定关键字。在 CSS 中，当一个属性设置为 inherit 时，该元素会继承其父元素对应属性的计算值。 */
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+/* 这段代码是为 h1 标题元素设置字体大小的样式规则。
+具体来说，它使用了 calc() 函数来计算字体大小。calc() 函数允许在 CSS 中进行计算，这里的计算是将变量 --vk-font-size-base 的值加上 6px。
+假设变量 --vk-font-size-base 的值为 14px，那么 h1 的字体大小就会被设置为 14px + 6px = 20px。
+这样的写法使得字体大小可以根据变量的值进行动态调整，增加了样式的灵活性和可维护性。在不同的场景或设备上，可以通过修改变量 --vk-font-size-base 的值来统一调整相关元素的字体大小。 */
+h1 {
+  font-size: calc(var(--vk-font-size-base) + 6px);
+}
+
+h2 {
+  font-size: calc(var(--vk-font-size-base) + 4px);
+}
+
+h3 {
+  font-size: calc(var(--vk-font-size-base) + 2px);
+}
+
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+}
+
+p {
+  line-height: 1.8;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+sup,
+sub {
+  font-size: calc(var(--vk-font-size-base) - 1px);
+}
+
+small {
+  font-size: calc(var(--vk-font-size-base) - 2px);
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid var(--vk-border-color-lighter);
+}
