@@ -8,4 +8,4 @@ library.add(fas)
 import './styles/index.css'
 
 createApp(App)
-.mount('#app')
+    .mount('#app')

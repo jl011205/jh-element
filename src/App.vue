@@ -7,12 +7,14 @@ import Icon from './components/Icon/Icon.vue'
 import type { ButtonInstance } from './components/Button/types'
 const buttonRef = ref<ButtonInstance | null>(null)
 const openedValue = ref(['a'])
+const size = ref<any>('3x')
 onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref)
   }
   setTimeout(() => {
     openedValue.value = ['a', 'b']
+    size.value = '2xl'
   }, 2000)
 })
 </script>
@@ -21,8 +23,8 @@ onMounted(() => {
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
   </header>
-  <Icon icon="fa-solid fa-user-secret" />
-  <Icon :icon="['fas', 'user-secret']" />
+  <Icon icon="arrow-up" :size="size"  type="primary" color="red"/>
+  <Icon :icon="['fas', 'arrow-up']" type="success"/>
   <!-- <Icon :icon="['fas', 'user-secret']" /> -->
   <!-- <font-awesome-icon :icon="['fas', 'user-secret']" /> -->
   <main>
@@ -43,6 +45,10 @@ onMounted(() => {
     <Button type="danger" plain>Danger</Button><br/><br/>
     <Button size="large">Large</Button>
     <Button size="small">Small</Button>
+    <br><br>
+    <Button size="large"  loading>Loading</Button>
+    <Button size="large"  icon="arrow-up" >Icon</Button>
+
 
     <Collapse v-model="openedValue">
       <Item name="a" title="Title A">

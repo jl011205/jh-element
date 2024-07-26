@@ -1,17 +1,23 @@
 <template>
-    <i class="vk-icon" >
-      <font-awesome-icon v-bind="$props"/>
-    </i>
-  </template>
-  <script setup lang="ts">
+  <i class="vk-icon" :class="{[`vk-icon--${type}`] : type }" v-bind="$attrs" :style="customStyles">
 
-  import type { IconProps } from './types'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-  defineOptions({
-    name: 'VkIcon',
-    inheritAttrs: false
-  })
-defineProps<IconProps>()
+    <font-awesome-icon v-bind="filteredProps" />
+  </i>
+</template>
+<script setup lang="ts">
 
-  </script>
-  
+import { omit } from 'lodash-es';
+import type { IconProps } from './types'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { computed } from 'vue';
+defineOptions({
+  name: 'VkIcon',
+  inheritAttrs: false
+})
+const props = defineProps<IconProps>()
+const filteredProps = computed(()=> omit(props, ['type', 'color']))
+const customStyles = computed(()=>{
+  return props.color ?{color:props.color}:{}
+})
+</script>
