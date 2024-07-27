@@ -1,45 +1,35 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { createPopper } from '@popperjs/core'
-import type { Instance } from '@popperjs/core'
+import Tooltip from './components/Tooltip/Tooltip.vue'
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
-import Tooltip from './components/TooLtip/Tooltip.vue'
 import type { ButtonInstance } from './components/Button/types'
-
 const buttonRef = ref<ButtonInstance | null>(null)
-//两个对应的dom节点     要显示的涂层节点
-const overlayNode = ref<HTMLElement>()
-const triggerNode = ref<HTMLElement>()
-//创建实例
-let popperInstance: Instance | null = null
 const openedValue = ref(['a'])
 const size = ref<any>('3x')
+const trigger = ref<any>('click')
 onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref)
   }
-  if (overlayNode.value && triggerNode.value) {
-     popperInstance = createPopper(triggerNode.value,overlayNode.value,{placement:'right-start'})
-  }
   setTimeout(() => {
     openedValue.value = ['a', 'b']
     size.value = '2xl'
-    popperInstance?.setOptions({ placement: 'bottom' })
+    trigger.value = 'hover'
   }, 2000)
 })
 </script>
 
 <template>
   <header>
-    <Tooltip  placement="right">
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-   <template #content>
-    <h1>hello tooltip</h1>
-   </template>
-  </Tooltip>
+    <Tooltip placement="right" :trigger="trigger">
+      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
+      <template #content>
+        <h1>Hello tooltip</h1>
+      </template>
+    </Tooltip>
   </header>
   <Icon icon="arrow-up" :size="size"  type="primary" color="red"/>
   <Icon :icon="['fasds', 'pen-nib']" />
