@@ -24,6 +24,8 @@ onMounted(() => {
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
   </header>
   <Icon icon="arrow-up" :size="size"  type="primary" color="red"/>
+  <Icon :icon="['fasds', 'pen-nib']" />
+  <Icon :icon="['fasds', 'bolt']" size="10x" color="yellow"/>
   <Icon :icon="['fas', 'arrow-up']" type="success"/>
   <!-- <Icon :icon="['fas', 'user-secret']" /> -->
   <!-- <font-awesome-icon :icon="['fas', 'user-secret']" /> -->
