@@ -1,15 +1,26 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import type { Options } from '@popperjs/core'
+
 import Tooltip from './components/Tooltip/Tooltip.vue'
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
 import type { ButtonInstance } from './components/Button/types'
+import type { TooltipInstance } from './components/Tooltip/types'
 const buttonRef = ref<ButtonInstance | null>(null)
+const tooltipRef = ref<TooltipInstance | null>(null)
 const openedValue = ref(['a'])
 const size = ref<any>('3x')
 const trigger = ref<any>('click')
+const options :Partial<Options> = { placement:'right',strategy:'fixed'}
+const open = () =>{
+  tooltipRef.value?.show()
+}
+const close = () =>{
+  tooltipRef.value?.hide()
+}
 onMounted(() => {
   if (buttonRef.value) {
     console.log('buttonRef', buttonRef.value.ref)
@@ -17,14 +28,14 @@ onMounted(() => {
   setTimeout(() => {
     openedValue.value = ['a', 'b']
     size.value = '2xl'
-    trigger.value = 'hover'
+    // trigger.value = 'hover'
   }, 2000)
 })
 </script>
 
 <template>
   <header>
-    <Tooltip placement="right" :trigger="trigger">
+    <Tooltip :trigger="trigger" :open-delay="1000" :close-delay="1000" :popper-options="options" ref="tooltipRef">
       <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
       <template #content>
         <h1>Hello tooltip</h1>
@@ -38,8 +49,8 @@ onMounted(() => {
   <!-- <Icon :icon="['fas', 'user-secret']" /> -->
   <!-- <font-awesome-icon :icon="['fas', 'user-secret']" /> -->
   <main>
-    <Button ref="buttonRef">Test Button</Button>
-    <Button plain>Plain Button</Button>
+    <Button ref="buttonRef" @click="open">Test Button</Button>
+    <Button plain @click="close">Plain Button</Button>
     <Button round>Round Button</Button>
     <Button circle>VK</Button>
     <Button disabled>Disabled Button</Button><br/><br/>
