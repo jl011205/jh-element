@@ -71,5 +71,8 @@
 
   /* animation */
   --vk-transition-duration: 0.3s;
-  --vk0transition-duration-fast: 0.2s;
+  --vk-transition-duration-fast: 0.2s;
+}
+li {
+  list-style-type: none;
 }
