@@ -10,8 +10,8 @@
 @import '../components/Input/style.css';
 @import '../components/Switch/style.css';
 @import '../components/Select/style.css';
+@import '../components/Form/style.css';
 
-
-
-@import '../components/test/style.css';
+@import '../components/Timer/style.css';
+@import '../components/SVComponent/style.css';
 

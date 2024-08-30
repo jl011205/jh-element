@@ -35,7 +35,13 @@ export default defineConfig({
           {text:'Input',link:'/components/input'},
           {text:'Switch',link:'/components/switch'},
           {text:'Form',link:'/components/form'},
-          {text:'Select',link:'/components/select'}
+          {text:'Timer',link:'/components/timer'},
+          {text:'SVComponent',link:'/components/svcomponent'},
+          {text:'LongList',link:'/components/longlist'},
+          {text:'Select',link:'/components/select'},
+          {text:'Pinyin',link:'/components/pinyin'},
+          {text:'CodeVerifier',link:'/components/codeverifier'},
+          {text:'Test',link:'/components/test'},
         ]
       }  
     ],

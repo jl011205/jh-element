@@ -1,5 +1,3 @@
-import "./chunk-VUNV25KB.js";
-
 // node_modules/@fortawesome/free-solid-svg-icons/index.mjs
 var prefix = "fas";
 var fa0 = {

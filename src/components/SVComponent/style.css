@@ -1,0 +1,60 @@
+.vk-svcomponent {
+  --vk-svcomponent-bg-color: var(--vk-fill-color-blank);
+  --vk-svcomponent-text-color: var(--vk-text-color-regular);
+  --vk-svcomponent-border-color: var(--vk-border-color);
+}
+.vk-svcomponent {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  white-space: nowrap;
+  width: 300px; /* 与.wai 的宽度匹配 */
+  height: 40px;
+  color: var(--vk-svcomponent-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--vk-svcomponent-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  background-color: var(--vk-svcomponent-bg-color);
+  border: var(--vk-border);
+  border-color: var(--vk-svcomponent-border-color);
+  padding: 8px 15px;
+  font-size: var(--vk-font-size-base);
+  border-radius: var(--vk-border-radius-base);
+
+}
+.slide-container-wrapper {
+  position: absolute;
+  width: 300px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.slide-verification-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40px; /* 正方形边长 */
+  background-color: #cccccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.svcomponent_arrow {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.vk-svcomponent--success .slide-container-wrapper {
+  background-color: #19be6b;
+}
+

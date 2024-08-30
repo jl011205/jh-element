@@ -15,8 +15,7 @@ import type { ButtonInstance } from './components/Button/types'
 import type { TooltipInstance } from './components/Tooltip/types'
 import { createMessage } from './components/Message/method'
 import type { MenuOption } from './components/Dropdown/types'
-import test from './components/test/test.vue'
-import Test from './components/test/test.vue'
+
 
 const inputTest = ref('')
 
@@ -61,6 +60,8 @@ onMounted(() => {
 
 
   <header>
+    <button>123</button>
+    <Button type="danger">123</Button>
     <Test type="primary">12hfghfgh3</Test>
     <!-- <Switch> -->
     <Input v-model="inputTest" clearable placeholder="输入字符以后可以点击清空"/>
@@ -110,7 +111,7 @@ onMounted(() => {
     <Button type="info">Info</Button>
     <Button type="warning">Warning</Button>
     <Button type="danger">Danger</Button><br /><br />
-    <Button type="primary" plain>Primary</Button>
+    <Button type="primary">Primary</Button>
     <Button type="success" plain>Success</Button>
     <Button type="info" plain>Info</Button>
     <Button type="warning" plain>Warning</Button>

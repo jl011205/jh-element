@@ -7,6 +7,20 @@
     <title>Vite App</title>
   </head>
   <body>
+    <script>
+      ~ function(){
+        function computed() {
+          let HTML = document.documentElement,
+            deviceW = HTML.clientWidth,
+            designW = 750,
+            ratio = deviceW / designW * 100;
+            if (deviceW>=designW) ratio = 100; 
+            HTML.style.fontSize = ratio + 'px'
+            computed();
+            window.addEventListener('resize',computed)
+        }
+      }
+    </script>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
