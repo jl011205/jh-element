@@ -12,7 +12,7 @@ import { ref, onMounted } from 'vue';
 import type { Item } from './types';
 
 interface Props {
-    fetchDataFn: () => Promise<Item[]>; // 用户传入的获取数据函数
+    fetchDataFn: () => Promise<Item[]>; 
 }
 
 const props = defineProps<Props>();
@@ -23,7 +23,7 @@ const page = ref(1);
 
 
 const fetchData = async () => {
-    if (loading.value) return; // 如果正在加载，则不执行
+    if (loading.value) return; 
     loading.value = true;
 
     try {
@@ -48,10 +48,11 @@ const handleScroll = () => {
             fetchData();
         }
     }
+
 };
 
 onMounted(() => {
-    fetchData(); // 初始化加载第一批数据
+    fetchData(); 
 });
 </script>
 
