@@ -6,4 +6,5 @@
 
 <script setup lang="ts">
 import Timer from '../../../src/components/Timer/Timer.vue'
+
 </script>
